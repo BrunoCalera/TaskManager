@@ -4,3 +4,6 @@
 
 /.vs/TaskManager.slnx
 /TaskManager.API/obj
+/TaskManager.Application/obj
+/TaskManager.Domain/obj
+/TaskManager.API/TaskManager.API.csproj.Backup.tmp
