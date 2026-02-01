@@ -7,3 +7,4 @@
 /TaskManager.Application/obj
 /TaskManager.Domain/obj
 /TaskManager.API/TaskManager.API.csproj.Backup.tmp
+/TaskManager.API/bin/Debug/net10.0
