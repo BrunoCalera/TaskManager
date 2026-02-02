@@ -4,7 +4,7 @@ using TaskManager.Domain.Enums;
 
 namespace TaskManager.Application.DTO.Task
 {
-    public class TaskCreateDTO
+    public class TaskUpdateDTO
     {
         [Required(ErrorMessage = "O campo Name é obrigatório")]
         [StringLength(100, ErrorMessage = "O campo Name não pode ter mais de 100 caracteres")]

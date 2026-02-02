@@ -13,6 +13,8 @@ namespace TaskManager.Application.Mappings
         public TaskProfile()
         {
             CreateMap<TaskCreateDTO, TodoTask>();
+            CreateMap<TodoTask, TaskGetDTO> ();
+            CreateMap<TaskUpdateDTO, TodoTask>();
         }
     }
 }
