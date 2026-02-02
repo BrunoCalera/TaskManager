@@ -15,5 +15,10 @@ namespace TaskManager.Application.Services
             tasks.Add(task);
             return task.Id;
         }
+
+        public TodoTask GetById(Guid id)
+        {
+            return tasks.FirstOrDefault(t => t.Id == id);
+        }
     }
 }

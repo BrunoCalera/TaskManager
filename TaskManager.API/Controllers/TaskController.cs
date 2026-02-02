@@ -2,6 +2,7 @@
 using TaskManager.API.Contracts;
 using TaskManager.Application.DTO.Task;
 using TaskManager.Application.Services;
+using TaskManager.Domain.Entities;
 
 namespace TaskManager.API.Controllers
 {
@@ -26,7 +27,20 @@ namespace TaskManager.API.Controllers
             }
             
             var response = taskService.Create(taskCreateDto);
-            return CreatedAtAction(string.Empty, new { id = response });
+            return CreatedAtAction(nameof(GetById), new { id = response });
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        [ProducesResponseType(typeof(TodoTask), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetById(Guid id)
+        {
+            if (id == Guid.Empty) return BadRequest("Id não pode ser null ou vazio");
+
+            var task = taskService.GetById(id);
+            if (task == null) return NotFound();
+            return Ok(task);
         }
     }
 }
