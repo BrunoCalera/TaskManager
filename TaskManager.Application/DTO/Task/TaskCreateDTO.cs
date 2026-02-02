@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-using Microsoft.VisualBasic;
+﻿using System.ComponentModel.DataAnnotations;
+using TaskManager.Application.Common.Validation;
 using TaskManager.Domain.Enums;
 
-namespace TaskManager.Domain.Entities
+namespace TaskManager.Application.DTO.Task
 {
-    public class Task
+    public class TaskCreateDTO
     {
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
-
         [Required(ErrorMessage = "O campo Name é obrigatório")]
         [StringLength(100, ErrorMessage = "O campo Name não pode ter mais de 100 caracteres")]
         public string Name { get; set; } = string.Empty;
@@ -23,6 +17,7 @@ namespace TaskManager.Domain.Entities
         public Priority Priority { get; set; }
 
         [Required(ErrorMessage = "O campo DueDate é obrigatório")]
+        [FutureDate(ErrorMessage = "A DueDate não pode ser no passado")]
         public DateTime DueDate { get; set; }
 
         [Required(ErrorMessage = "O campo Status é obrigatório")]

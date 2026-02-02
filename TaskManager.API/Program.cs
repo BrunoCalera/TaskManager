@@ -1,3 +1,6 @@
+using TaskManager.Application.Mappings;
+using TaskManager.Application.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,6 +15,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddOpenApi();
 
 builder.Services.AddRouting(opt => opt.LowercaseUrls = true);
+
+builder.Services.AddAutoMapper(typeof(AssemblyReference).Assembly);
+builder.Services.AddScoped<ITaskService, TaskService>();
 
 var app = builder.Build();
 
