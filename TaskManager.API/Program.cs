@@ -28,7 +28,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "petfolio-api v1");
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskManager");
         options.RoutePrefix = string.Empty; // Swagger direto na raiz (localhost:5000/)
     });
 }
